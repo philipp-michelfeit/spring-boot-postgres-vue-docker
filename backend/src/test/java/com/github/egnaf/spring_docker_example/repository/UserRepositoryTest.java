@@ -1,24 +1,27 @@
 package com.github.egnaf.spring_docker_example.repository;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 import com.github.egnaf.spring_docker_example.ApplicationTest;
 import com.github.egnaf.spring_docker_example.domain.User;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.*;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class UserRepositoryTest extends ApplicationTest {
 
     @Autowired
     private UserRepository userRepository;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         User user1 = new User(1L, "user1", "user1@mail.com", "pass");
         userRepository.save(user1);

@@ -1,6 +1,8 @@
 package com.github.egnaf.spring_docker_example.config;
 
-import org.dozer.DozerBeanMapper;
+import com.github.dozermapper.core.DozerBeanMapper;
+import com.github.dozermapper.core.DozerBeanMapperBuilder;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,6 +11,6 @@ public class DozerConfig {
 
     @Bean
     public DozerBeanMapper dozer() {
-        return new DozerBeanMapper();
+        return (DozerBeanMapper)DozerBeanMapperBuilder.create().build();
     }
 }

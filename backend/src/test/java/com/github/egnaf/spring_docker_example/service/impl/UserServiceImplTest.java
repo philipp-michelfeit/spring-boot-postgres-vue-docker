@@ -1,25 +1,27 @@
 package com.github.egnaf.spring_docker_example.service.impl;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+
 import com.github.egnaf.spring_docker_example.ApplicationTest;
 import com.github.egnaf.spring_docker_example.domain.User;
 import com.github.egnaf.spring_docker_example.exception.UserExistsException;
 import com.github.egnaf.spring_docker_example.exception.UserNotFoundException;
 import com.github.egnaf.spring_docker_example.repository.UserRepository;
 import com.github.egnaf.spring_docker_example.service.UserService;
+
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 @Slf4j
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 public class UserServiceImplTest extends ApplicationTest {
 
     @Autowired
@@ -28,7 +30,7 @@ public class UserServiceImplTest extends ApplicationTest {
     @Autowired
     private UserService userService;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         User user1 = new User(1L, "user1", "user1@mail.com", "pass");
         userRepository.save(user1);

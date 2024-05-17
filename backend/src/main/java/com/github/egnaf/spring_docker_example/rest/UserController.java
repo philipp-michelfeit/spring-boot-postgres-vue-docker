@@ -1,15 +1,21 @@
 package com.github.egnaf.spring_docker_example.rest;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.github.dozermapper.core.Mapper;
 import com.github.egnaf.spring_docker_example.domain.User;
 import com.github.egnaf.spring_docker_example.service.UserService;
 import com.github.egnaf.spring_docker_example.transfer.UserDto;
-import lombok.extern.slf4j.Slf4j;
-import org.dozer.Mapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
