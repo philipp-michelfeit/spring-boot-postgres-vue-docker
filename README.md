@@ -3,12 +3,12 @@
 # spring-boot-postgres-vue-docker
 
 ## Stack
-- Spring Boot 2.2.0
-- Spring Data 2.2.0
-- Postgres 9.4
-- Docker 3
-- Maven 4
-- Tomcat 9
+- Spring Boot 3
+- Spring Data 3
+- Postgres
+- Docker
+- Maven
+- Tomcat
 
 ## Install
 To build services and launch them in containers, you need to run `start.sh`.
