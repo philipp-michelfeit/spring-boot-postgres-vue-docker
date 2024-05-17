@@ -1,4 +1,4 @@
-FROM node:lts-alpine
+FROM node:current-alpine
 RUN npm install -g http-server
 WORKDIR /app/frontend
 COPY package*.json ./

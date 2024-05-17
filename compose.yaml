@@ -1,14 +1,13 @@
-version: '3'
 services:
-  postgres:
-    container_name: postgres
+  db:
+    container_name: database
     image: postgres:latest
     ports:
       - "5432:5000"
     environment:
       - POSTGRES_DB=demo
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
+      - POSTGRES_USER=secret
+      - POSTGRES_PASSWORD=secret
   backend:
     container_name: backend
     build: ./backend
@@ -23,10 +22,10 @@ services:
       - "3000:5002"
     depends_on:
       - backend
-  nginx:
-    container_name: nginx
+  webserver:
+    container_name: webserver
     image: proxy
-    build: ./.nginx
+    build: ./webserver
     depends_on:
       - backend
       - frontend
